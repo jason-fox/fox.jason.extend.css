@@ -14,7 +14,18 @@
 	</target>
 
 	<target name="extend.css.copy">
-	    <copy if:set="is.html" tofile="${output.dir}/common-extended.css" file="${extend.css.file}"/>
+
+		<condition property="user.csspath" value="">
+			<or>
+				<not>
+					<isset property="args.csspath"/>
+				</not>
+				<isabsolute path="${args.csspath}"/>
+			</or>
+		</condition>
+    	<property name="user.csspath" value="${args.csspath}/"/>
+
+	    <copy if:set="is.html" tofile="${output.dir}/${user.csspath}/common-extended.css" file="${extend.css.file}"/>
 	</target>
 
 	<target name="extend.css" depends="extend.css.init,swagger.css.copy,prismjs.css.copy,extend.css.copy"/>
