@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><!--ant--><!--
+	This file is part of the DITA-OT Extend CSS Plug-in project.
+	See the accompanying LICENSE file for applicable licenses.
+--><project xmlns:if="ant:if" xmlns:unless="ant:unless" xmlns:dita="http://dita-ot.sourceforge.net" name="fox.jason.extend.css">
+
+	<target name="extend.css.init">
+	    <tempfile deleteonexit="true" destdir="${dita.temp.dir}" property="extend.css.file" suffix=".css"/>
+	    <condition property="is.html">
+			<equals arg1="${out.ext}" arg2=".html"/>
+		</condition>
+		<condition property="is.html">
+			<equals arg1="${out.ext}" arg2=".htm"/>
+		</condition>
+	</target>
+
+	<target name="extend.css.copy" >
+	    <copy if:set="is.html" tofile="${output.dir}/common-extended.css" file="${extend.css.file}"/>
+	</target>
+
+	<target name="extend.css"
+		dita:depends="extend.css.init,{extend.css.process.pre},{extend.css.process},{extend.css.process.post},extend.css.copy"
+		dita:extension="depends org.dita.dost.platform.InsertDependsAction"/>
+
+</project>
