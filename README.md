@@ -49,7 +49,7 @@ rm dita-ot-3.3.zip
 -   Run the plug-in installation commands:
 
 ```console
-dita --install https://github.com/jason-fox/extend.css/archive/master.zip
+dita --install https://github.com/jason-fox/jason.fox.extend.css/archive/master.zip
 ```
 
 The `dita` command line tool requires no additional configuration.
