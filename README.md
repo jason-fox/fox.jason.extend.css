@@ -19,14 +19,14 @@ It offers three extension-points for further CSS processing.
 
 # Install
 
-The DITA-OT Extended class plug-in has been tested against [DITA-OT 3.x](http://www.dita-ot.org/download). It is
+The DITA-OT Extended CSS plug-in has been tested against [DITA-OT 3.x](http://www.dita-ot.org/download). It is
 recommended that you upgrade to the latest version.
 
 ## Installing DITA-OT
 
 <a href="https://www.dita-ot.org"><img src="https://www.dita-ot.org/images/dita-ot-logo.svg" align="right" height="55"></a>
 
-The DITA-OT Pass Through plug-in is a file reader for the DITA Open Toolkit.
+The DITA-OT Extended CSS plug-in is an extension for the DITA Open Toolkit.
 
 -   Full installation instructions for downloading DITA-OT can be found
     [here](https://www.dita-ot.org/3.3/topics/installing-client.html).
