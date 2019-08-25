@@ -1,6 +1,6 @@
 <h1>Install</h1>
 
-The DITA-OT Swagger plug-in has been tested against [DITA-OT 3.x](http://www.dita-ot.org/download). It is
+The DITA-OT Extended CSS plug-in has been tested against [DITA-OT 3.x](http://www.dita-ot.org/download). It is
 recommended that you upgrade to the latest version.
 
 ## Installing DITA-OT
