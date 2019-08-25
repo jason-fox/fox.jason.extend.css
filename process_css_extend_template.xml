@@ -5,6 +5,7 @@
 
 	<target name="extend.css.init">
 	    <tempfile deleteonexit="true" destdir="${dita.temp.dir}" property="extend.css.file" suffix=".css"/>
+	    <touch file="${extend.css.file}"/>
 	    <condition property="is.html">
 			<equals arg1="${out.ext}" arg2=".html"/>
 		</condition>
