@@ -96,12 +96,13 @@ The following `plugin.xml` will invoke an extension point and append additional 
 
 ```xml
 <plugin id="com.example.extended.css">
+  <feature extension="ant.import" file="build.xml"/>
   <require plugin="fox.jason.extend.css"/>
   <feature extension="extend.css.process" value="example.css.copy"/>
 </plugin>
 ```
 
-#### ANT build file
+#### ANT build file: `build.xml`
 
 ```xml
 <project name="com.example.extended.css">
