@@ -7,7 +7,8 @@ This is an abstract base [DITA-OT Plug-in](https://www.dita-ot.org/plugins) to e
 
 It offers three extension-points for further CSS processing.
 
-# Table of Contents
+<details>
+<summary><strong>Table of Contents</strong></summary>
 
 -   [Install](#install)
     -   [Installing DITA-OT](#installing-dita-ot)
@@ -17,12 +18,14 @@ It offers three extension-points for further CSS processing.
         -   [Example](#example)
 -   [License](#license)
 
-# Install
+</details>
+
+## Install
 
 The DITA-OT Extended CSS plug-in has been tested against [DITA-OT 3.x](http://www.dita-ot.org/download). It is
 recommended that you upgrade to the latest version.
 
-## Installing DITA-OT
+### Installing DITA-OT
 
 <a href="https://www.dita-ot.org"><img src="https://www.dita-ot.org/images/dita-ot-logo.svg" align="right" height="55"></a>
 
@@ -44,7 +47,7 @@ unzip -q dita-ot-3.3.4.zip
 rm dita-ot-3.3.4.zip
 ```
 
-## Installing the Plug-in
+### Installing the Plug-in
 
 -   Run the plug-in installation commands:
 
@@ -56,7 +59,7 @@ The `dita` command line tool requires no additional configuration.
 
 ---
 
-# Usage
+## Usage
 
 Run any HTML dita transform e.g.:
 
@@ -75,7 +78,7 @@ Each HTML output file will include an additional line in the `<head>`
 
 The file `common-extended.css` will include any CSS added via the extension points described below.
 
-## Extension points
+### Extension points
 
 CSS rules are always position dependent - the rule defined last in a file will
 supercede previous definitions. This plug-in is  offers three extension points where CSS can be appended to a file so that CSS rules can be added in order.
@@ -88,11 +91,11 @@ supercede previous definitions. This plug-in is  offers three extension points w
 
 
 
-### Example
+#### Example
 
 The following `plugin.xml` will invoke an extension point and append additional CSS to `extend.css.file` which is copied to the output
 
-#### `plugin.xml` Configuration
+##### `plugin.xml` Configuration
 
 ```xml
 <plugin id="com.example.extended.css">
@@ -102,7 +105,7 @@ The following `plugin.xml` will invoke an extension point and append additional 
 </plugin>
 ```
 
-#### ANT build file: `build.xml`
+##### ANT build file: `build.xml`
 
 ```xml
 <project name="com.example.extended.css">
@@ -116,6 +119,6 @@ The following `plugin.xml` will invoke an extension point and append additional 
 Working examples can be found in the [DITA-OT Swagger plug-in](https://github.com/jason-fox/fox.jason.passthrough.swagger) and [DITA-OT Prism-JS plug-in](https://github.com/jason-fox/fox.jason.prismjs)
 repositories.
 
-# License
+## License
 
 [Apache 2.0](LICENSE) © 2019 Jason Fox
