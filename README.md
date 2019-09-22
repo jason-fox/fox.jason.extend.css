@@ -87,7 +87,7 @@ supercede previous definitions. This plug-in is  offers three extension points w
 
 -   `extend.css.process` - Runs an additional Ant target as part of the extended css processing stage.
 
--   `extend.css.process.post` - Runs an additional Ant target before the Extended class pre-processing stage.
+-   `extend.css.process.post` - Runs an additional Ant target after the extended css processing.
 
 
 
