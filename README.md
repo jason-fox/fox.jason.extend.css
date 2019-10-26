@@ -2,6 +2,7 @@
 
 [![license](https://img.shields.io/github/license/jason-fox/fox.jason.extend.css.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 [![DITA-OT 3.3](https://img.shields.io/badge/DITA--OT-3.3-blue.svg)](http://www.dita-ot.org/3.3/)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=fox.jason.extend.css&metric=alert_status)](https://sonarcloud.io/dashboard?id=fox.jason.extend.css)
 
 This is an abstract base [DITA-OT Plug-in](https://www.dita-ot.org/plugins) to extend HTML processing and allow additional plug-ins to add an extra CSS stylesheet to the `<header>` of each HTML page. By default the plug-in does nothing appart from creating a temporary file `extend.css.file` - it is designed to be extended so other plugins can add CSS to the blank file.
 

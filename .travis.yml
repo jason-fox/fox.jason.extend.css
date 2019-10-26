@@ -1,0 +1,21 @@
+language: java
+sudo: required
+dist: bionic
+
+jdk:
+  - openjdk10
+
+addons:
+  apt:
+    packages:
+      - ant
+  sonarcloud:
+    organization: "dita-ot-plugins"
+    token:
+      secure: "jSG0gk4NOy25FNra/xjrCQ5+83uJbxKCblitWf2675Jvm6kVHoHmW/4o7DwCicJooJZRgyQfTvi7uuheUDZOIy4JuMERukgB+uk7QjTp2oi7IrZ1YbF0xP74aVQO1KPI0ZPBsvH9+lxl/1wnXUDQU5WKL8g3lDqVA+zHBEKDO2cBx8/IH5CfDJ/d9ErLDSuT7NlI9IrhHlyOkBRH8k5RJS83u4ejGPpDYjTHRSkE6RIZAtracEUPnGVFWhGhCkct1IvJ3v6Ibvw5neUtf5nTmX+PJ5Ggj78XPtCETlmLPrsMrACAz9Oj53jlS29hje/wjU5n0NX/ajmgiam3ypg3GhmTsM7PJo2FHM9YWlzI4Npq4GCDehZs5WFQsj9cTlk+zLXmGdGBCwxcH69gfdkNfiNkkPaZQPtMHWkxrQmyvo91gUce7QDNVWe12OSXJIPKVI+hPBq1jsMv1aJrr+xRgEn2WEqucodYv3YfODGXpV5ty0+T2b5pEDG3PYwsNfZne6MVGc4ws+fChLFTjbKl/Z7Ak3M+Xw7l6m7zNmNPlZ4P7LVuXsibd/faGCx4iCYB2YpY6jwx4FegnfTQsL26aNglcxoziO/W2Gay+mXi7HyB31z10ZJikAv6Caw4RvC3HLD3yfq5NnXcVTJgpC4ImC9AkyPs243vZl1zjMDkDp8="
+            
+script:
+  - true
+
+after_success:
+  - sonar-scanner 
