@@ -4,7 +4,10 @@
 [![DITA-OT 3.4](https://img.shields.io/badge/DITA--OT-3.4-blue.svg)](http://www.dita-ot.org/3.4)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=fox.jason.extend.css&metric=alert_status)](https://sonarcloud.io/dashboard?id=fox.jason.extend.css)
 
-This is an abstract base [DITA-OT Plug-in](https://www.dita-ot.org/plugins) to extend HTML processing and allow additional plug-ins to add an extra CSS stylesheet to the `<header>` of each HTML page. By default the plug-in does nothing appart from creating a temporary file `extend.css.file` - it is designed to be extended so other plugins can add CSS to the blank file.
+This is an abstract base [DITA-OT Plug-in](https://www.dita-ot.org/plugins) to extend HTML processing and allow
+additional plug-ins to add an extra CSS stylesheet to the `<header>` of each HTML page. By default the plug-in does
+nothing appart from creating a temporary file `extend.css.file` - it is designed to be extended so other plugins can add
+CSS to the blank file.
 
 It offers three extension-points for further CSS processing.
 
@@ -81,8 +84,8 @@ The file `common-extended.css` will include any CSS added via the extension poin
 
 ### Extension points
 
-CSS rules are always position dependent - the rule defined last in a file will
-supercede previous definitions. This plug-in is  offers three extension points where CSS can be appended to a file so that CSS rules can be added in order.
+CSS rules are always position dependent - the rule defined last in a file will supercede previous definitions. This
+plug-in is offers three extension points where CSS can be appended to a file so that CSS rules can be added in order.
 
 -   `extend.css.process.pre` - Runs an additional Ant target before the extended css processing stage.
 
@@ -90,11 +93,10 @@ supercede previous definitions. This plug-in is  offers three extension points w
 
 -   `extend.css.process.post` - Runs an additional Ant target after the extended css processing.
 
-
-
 #### Example
 
-The following `plugin.xml` will invoke an extension point and append additional CSS to `extend.css.file` which is copied to the output
+The following `plugin.xml` will invoke an extension point and append additional CSS to `extend.css.file` which is copied
+to the output
 
 ##### `plugin.xml` Configuration
 
@@ -117,8 +119,9 @@ The following `plugin.xml` will invoke an extension point and append additional 
 </project>
 ```
 
-Working examples can be found in the [DITA-OT Swagger plug-in](https://github.com/jason-fox/fox.jason.passthrough.swagger) and [DITA-OT Prism-JS plug-in](https://github.com/jason-fox/fox.jason.prismjs)
-repositories.
+Working examples can be found in the
+[DITA-OT Swagger plug-in](https://github.com/jason-fox/fox.jason.passthrough.swagger) and
+[DITA-OT Prism-JS plug-in](https://github.com/jason-fox/fox.jason.prismjs) repositories.
 
 ## License
 
