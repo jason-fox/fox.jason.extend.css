@@ -7,12 +7,6 @@
 		<mkdir dir="${dita.temp.dir}"/>
 	    <tempfile deleteonexit="true" destdir="${dita.temp.dir}" property="extend.css.file" suffix=".css"/>
 	    <touch file="${extend.css.file}"/>
-	    <condition property="is.html">
-			<equals arg1="${out.ext}" arg2=".html"/>
-		</condition>
-		<condition property="is.html">
-			<equals arg1="${out.ext}" arg2=".htm"/>
-		</condition>
 	</target>
 
 	<target name="extend.css.copy" >
@@ -27,7 +21,7 @@
 		</condition>
     	<property name="user.csspath" value="${args.csspath}/"/>
 
-	    <copy if:set="is.html" tofile="${output.dir}/${user.csspath}/common-extended.css" file="${extend.css.file}"/>
+	    <copy tofile="${output.dir}/${user.csspath}/common-extended.css" file="${extend.css.file}"/>
 	</target>
 
 	<target name="extend.css"
