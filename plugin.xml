@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="dita-ot/plugin.rnc" type="application/relax-ng-compact-syntax"?>
-<plugin id="fox.jason.extend.css" version="1.0.2">
+<plugin id="fox.jason.extend.css" version="1.0.3">
 	<feature extension="ant.import" file="process_css_extend.xml"/>
 	<!-- HTML5 extension points -->   
 	<feature extension="dita.xsl.html5" value="xsl/xhtml.xsl" type="file"/>
