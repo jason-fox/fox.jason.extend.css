@@ -8,24 +8,29 @@
     exclude-result-prefixes="xs"
     version="2.0">
 
-  <xsl:param name="EXTENDED-CSS" select="'common-extended.css'"/> 
+  <xsl:param name="EXTENDED-CSS" select="'common-extended.css'"/>
 
   <xsl:template match="/|node()|@*" mode="gen-common-extended-style">
-     <xsl:variable name="urltest" as="xs:boolean"> <!-- test for URL -->
-        <xsl:call-template name="url-string">
-          <xsl:with-param name="urltext" select="concat($CSSPATH, $EXTENDED-CSS)"/>
-        </xsl:call-template>
-      </xsl:variable>
+    <xsl:variable name="urltest">
+      <xsl:call-template name="url-string">
+        <xsl:with-param name="urltext">
+          <xsl:value-of select="concat($CSSPATH,$EXTENDED-CSS)"/>
+        </xsl:with-param>
+      </xsl:call-template>
+    </xsl:variable>
 
-     <xsl:choose>
-        <xsl:when test="$urltest">
-          <link rel="stylesheet" type="text/css" href="{$CSSPATH}{$EXTENDED-CSS}" />
-        </xsl:when>
-        <xsl:otherwise>
-          <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$CSSPATH}{$EXTENDED-CSS}" />
-        </xsl:otherwise>
-      </xsl:choose>
+    <xsl:variable name="relpath">
+      <xsl:value-of select=" replace($FILEDIR,'[^/]+','..')"/>
+    </xsl:variable>
+
+    <xsl:choose>
+      <xsl:when test="$urltest = 'url'">
+        <link rel="stylesheet" type="text/css" href="{$CSSPATH}{$EXTENDED-CSS}" />
+      </xsl:when>
+      <xsl:otherwise>
+        <link rel="stylesheet" type="text/css" href="{$relpath}/{$CSSPATH}{$EXTENDED-CSS}" />
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
 
-  
 </xsl:stylesheet>
