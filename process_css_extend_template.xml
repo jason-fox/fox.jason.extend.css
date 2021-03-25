@@ -1,31 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?><!--ant--><!--
-	This file is part of the DITA-OT Extend CSS Plug-in project.
-	See the accompanying LICENSE file for applicable licenses.
+    This file is part of the DITA-OT Extend CSS Plug-in project.
+    See the accompanying LICENSE file for applicable licenses.
 --><project xmlns:if="ant:if" xmlns:unless="ant:unless" xmlns:dita="http://dita-ot.sourceforge.net" name="fox.jason.extend.css">
-
-	<target name="extend.css.init">
-		<mkdir dir="${dita.temp.dir}"/>
-	    <tempfile deleteonexit="true" destdir="${dita.temp.dir}" property="extend.css.file" suffix=".css"/>
-	    <touch file="${extend.css.file}"/>
-	</target>
-
-	<target name="extend.css.copy" >
-
-		<condition property="user.csspath" value="">
-			<or>
-				<not>
-					<isset property="args.csspath"/>
-				</not>
-				<isabsolute path="${args.csspath}"/>
-			</or>
-		</condition>
-    	<property name="user.csspath" value="${args.csspath}/"/>
-
-	    <copy tofile="${output.dir}/${user.csspath}/common-extended.css" file="${extend.css.file}"/>
-	</target>
-
-	<target name="extend.css"
-		dita:depends="extend.css.init,{extend.css.process.pre},{extend.css.process},{extend.css.process.post},extend.css.copy"
-		dita:extension="depends org.dita.dost.platform.InsertDependsAction"/>
-
+    
+    <target name="extend.css.init">
+        <mkdir dir="${dita.temp.dir}"/>
+        <tempfile deleteonexit="true" destdir="${dita.temp.dir}" property="extend.css.file" suffix=".css"/>
+        <touch file="${extend.css.file}"/>
+    </target>
+    
+    <target name="extend.css.copy" >
+        <copy tofile="${output.dir}/${user.csspath}/common-extended.css" file="${extend.css.file}"/>
+    </target>
+    
+    <target name="extend.css">
+        <condition property="enable.extend.css">
+            <or>
+                <contains string="${transtype}" substring="HTML" casesensitive="no"/>
+                <contains string="${transtype}" substring="eclipsehelp" casesensitive="no"/>
+            </or>
+        </condition>
+        <antcall target="call.extend.css" if:set="enable.extend.css" inheritRefs="true"/>
+    </target>
+    
+    <target name="call.extend.css"
+        dita:depends="extend.css.init,{extend.css.process.pre},{extend.css.process},{extend.css.process.post},extend.css.copy"
+        dita:extension="depends org.dita.dost.platform.InsertDependsAction"/>
+    
 </project>
