@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><!--ant--><!--
     This file is part of the DITA-OT Extend CSS Plug-in project.
     See the accompanying LICENSE file for applicable licenses.
---><project xmlns:if="ant:if" xmlns:unless="ant:unless" xmlns:dita="http://dita-ot.sourceforge.net" name="fox.jason.extend.css">
+--><project xmlns:dita="http://dita-ot.sourceforge.net" name="fox.jason.extend.css">
     
     <target name="extend.css.init">
         <mkdir dir="${dita.temp.dir}"/>
@@ -13,16 +13,13 @@
         <copy tofile="${output.dir}/${user.csspath}/common-extended.css" file="${extend.css.file}"/>
     </target>
     
-    <target name="extend.css" depends="extend-css-check-transtype, extend-css-set-properties">
-        <antcall target="call.extend.css" if:set="enable.extend.css" inheritRefs="true"/>
+    <target name="extend.css" depends="extend-css-check-transtype, extend-css-set-properties" if="enable.extend.css">
+        <antcall target="call.extend.css" inheritRefs="true"/>
     </target>
     
     <target name="extend-css-check-transtype">
         <condition property="enable.extend.css">
-            <or>
-                <contains string="${transtype}" substring="HTML" casesensitive="no"/>
-                <contains string="${transtype}" substring="eclipsehelp" casesensitive="no"/>
-            </or>
+            <contains string="${out.ext}" substring="htm" casesensitive="no"/>
         </condition>
     </target>
     
