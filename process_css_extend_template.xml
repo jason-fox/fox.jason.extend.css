@@ -19,7 +19,10 @@
     
     <target name="extend-css-check-transtype">
         <condition property="enable.extend.css">
-            <contains string="${out.ext}" substring="htm" casesensitive="no"/>
+            <or>
+                <contains string="${transtype}" substring="HTML" casesensitive="no"/>
+                <contains string="${transtype}" substring="eclipsehelp" casesensitive="no"/>
+            </or>
         </condition>
     </target>
     
