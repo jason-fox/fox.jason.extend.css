@@ -28,6 +28,9 @@
 		<copy if:set="is.html" tofile="${output.dir}/${user.csspath}/common-extended.css" file="${extend.css.file}"/>
 	</target>
 
-	<target name="extend.css" depends="extend.css.init,swagger.css.copy,prismjs.css.copy,extend.css.copy"/>
+	<target name="extend.css"
+		dita:depends="extend.css.init,{extend.css.process.pre},{extend.css.process},{extend.css.process.post},extend.css.copy"
+		dita:extension="depends org.dita.dost.platform.InsertDependsAction"/>
+
 
 </project>
