@@ -5,11 +5,11 @@
 
 	<target name="extend.css.init">
 		<mkdir dir="${dita.temp.dir}"/>
-	    <tempfile deleteonexit="true" destdir="${dita.temp.dir}" property="extend.css.file" suffix=".css"/>
-	    <touch file="${extend.css.file}"/>
+		<tempfile deleteonexit="true" destdir="${dita.temp.dir}" property="extend.css.file" suffix=".css"/>
+		<touch file="${extend.css.file}"/>
 	</target>
 
-	<target name="extend.css.copy" >
+	<target name="extend.css.copy">
 
 		<condition property="user.csspath" value="">
 			<or>
@@ -19,13 +19,15 @@
 				<isabsolute path="${args.csspath}"/>
 			</or>
 		</condition>
-    	<property name="user.csspath" value="${args.csspath}/"/>
+		<property name="user.csspath" value="${args.csspath}/"/>
 
-	    <copy tofile="${output.dir}/${user.csspath}/common-extended.css" file="${extend.css.file}"/>
+		<condition property="is.html">
+			<equals arg1="${out.ext}" arg2=".html"/>
+		</condition>
+
+		<copy ant:if="is.html" tofile="${output.dir}/${user.csspath}/common-extended.css" file="${extend.css.file}"/>
 	</target>
 
-	<target name="extend.css"
-		dita:depends="extend.css.init,{extend.css.process.pre},{extend.css.process},{extend.css.process.post},extend.css.copy"
-		dita:extension="depends org.dita.dost.platform.InsertDependsAction"/>
+	<target name="extend.css" depends="extend.css.init,swagger.css.copy,prismjs.css.copy,extend.css.copy"/>
 
 </project>
