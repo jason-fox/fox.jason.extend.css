@@ -12,7 +12,12 @@
 		<local name="is.html.transform"/>
 		<local name="extend.css.path"/>
 		<condition property="is.html.transform">
-			<equals arg1="${out.ext}" arg2=".html"/>
+			<or>
+				<equals arg1="${out.ext}" arg2=".html"/>
+				<!-- add any additional missing transtypes here -->
+				<contains string="${transtype}" substring="HTML" casesensitive="no"/>
+				<contains string="${transtype}" substring="eclipsehelp" casesensitive="no"/>
+			</or>
 		</condition>
 		<condition property="extend.css.path" value="${user.csspath}" else="">
 			<isset property="user.csspath"/>
