@@ -4,30 +4,7 @@
 --><project xmlns:dita="http://dita-ot.sourceforge.net" name="fox.jason.extend.css">
     
     <target name="extend.css.init">
-        <mkdir dir="${dita.temp.dir}"/>
-        <tempfile deleteonexit="true" destdir="${dita.temp.dir}" property="extend.css.file" suffix=".css"/>
-        <touch file="${extend.css.file}"/>
-    </target>
-    
-    <target name="extend.css.copy" >
-        <copy tofile="${output.dir}/${user.csspath}/common-extended.css" file="${extend.css.file}"/>
-    </target>
-    
-    <target name="extend.css" depends="extend-css-check-transtype, extend-css-set-properties" if="enable.extend.css">
-        <antcall target="call.extend.css" inheritRefs="true"/>
-    </target>
-    
-    <target name="extend-css-check-transtype">
-        <condition property="enable.extend.css">
-            <or>
-                <contains string="${transtype}" substring="HTML" casesensitive="no"/>
-                <contains string="${transtype}" substring="eclipsehelp" casesensitive="no"/>
-            </or>
-        </condition>
-    </target>
-    
-    <target name="extend-css-set-properties" depends="extend-css-check-transtype" if="enable.extend.css">
-        <condition property="user.csspath" value="">
+        <condition property="user.csspath" value="" else="${args.csspath}/">
             <or>
                 <not>
                     <isset property="args.csspath"/>
@@ -35,7 +12,26 @@
                 <isabsolute path="${args.csspath}"/>
             </or>
         </condition>
-        <property name="user.csspath" value="${args.csspath}/"/>
+        <mkdir dir="${dita.temp.dir}"/>
+        <tempfile deleteonexit="true" destdir="${dita.temp.dir}" property="extend.css.file" suffix=".css" createfile="yes"/>
+    </target>
+    
+    <target name="extend.css.copy" >
+        <copy tofile="${output.dir}/${user.csspath}/common-extended.css" file="${extend.css.file}"/>
+    </target>
+
+    <target name="extend-css-check-transtype">
+        <condition property="enable.extend.css">
+            <or>
+                <contains string="${out.ext}" substring="htm" casesensitive="no"/>
+                <contains string="${transtype}" substring="HTML" casesensitive="no"/>
+                <contains string="${transtype}" substring="eclipsehelp" casesensitive="no"/>
+            </or>
+        </condition>
+    </target>
+
+    <target name="extend.css" depends="extend-css-check-transtype" if="enable.extend.css">
+        <antcall target="call.extend.css" inheritRefs="true"/>
     </target>
     
     <target name="call.extend.css"
