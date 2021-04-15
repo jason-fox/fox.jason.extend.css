@@ -14,10 +14,9 @@
 		<condition property="is.html.transform">
 			<equals arg1="${out.ext}" arg2=".html"/>
 		</condition>
-		<condition property="extend.css.path" value="${user.csspath}">
+		<condition property="extend.css.path" value="${user.csspath}" else="">
 			<isset property="user.csspath"/>
 		</condition>
-		<property name="extend.css.path" value=""/>
 		<copy if:set="is.html.transform" tofile="${output.dir}/${extend.css.path}/common-extended.css" file="${extend.css.file}"/>
 	</target>
 
