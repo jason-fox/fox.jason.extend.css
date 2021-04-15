@@ -5,27 +5,20 @@
 
 	<target name="extend.css.init">
 		<mkdir dir="${dita.temp.dir}"/>
-		<tempfile deleteonexit="true" destdir="${dita.temp.dir}" property="extend.css.file" suffix=".css"/>
-		<touch file="${extend.css.file}"/>
+		<tempfile deleteonexit="true" destdir="${dita.temp.dir}" property="extend.css.file" suffix=".css" createfile="true"/>
 	</target>
 
 	<target name="extend.css.copy">
-
-		<condition property="user.csspath" value="">
-			<or>
-				<not>
-					<isset property="args.csspath"/>
-				</not>
-				<isabsolute path="${args.csspath}"/>
-			</or>
-		</condition>
-		<property name="user.csspath" value="${args.csspath}/"/>
-
-		<condition property="is.html">
+		<local name="is.html.transform"/>
+		<local name="extend.css.path"/>
+		<condition property="is.html.transform">
 			<equals arg1="${out.ext}" arg2=".html"/>
 		</condition>
-
-		<copy if:set="is.html" tofile="${output.dir}/${user.csspath}/common-extended.css" file="${extend.css.file}"/>
+		<condition property="extend.css.path" value="${user.csspath}">
+			<isset property="user.csspath"/>
+		</condition>
+		<property name="extend.css.path" value=""/>
+		<copy if:set="is.html.transform" tofile="${output.dir}/${extend.css.path}/common-extended.css" file="${extend.css.file}"/>
 	</target>
 
 	<target name="extend.css"
