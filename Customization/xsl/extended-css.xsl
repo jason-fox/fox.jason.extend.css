@@ -31,13 +31,6 @@
       </xsl:choose>
     </xsl:variable>
 
-    <xsl:message>
-       <xsl:value-of select="$FILEDIR"/>
-     </xsl:message>
-     <xsl:message>
-       <xsl:value-of select="$relpath"/>
-    </xsl:message>
-
     <xsl:choose>
       <xsl:when test="$urltest = 'url'">
         <link rel="stylesheet" type="text/css" href="{$CSSPATH}{$EXTENDED-CSS}" />
