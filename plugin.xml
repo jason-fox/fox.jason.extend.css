@@ -11,7 +11,10 @@
 	<!-- Offers three additional extension points for dependent plug-ins -->
 	<extension-point id="extend.css.process.pre" name="Custom CSS pre-processing"/>
 	<extension-point id="extend.css.process" name="Custom CSS processing"/>
-	<extension-point id="extend.css.process.post" name="Custom CSS post-processing"/>
+	<extension-point
+    id="extend.css.process.post"
+    name="Custom CSS post-processing"
+  />
 	<!-- Add a template file to enable overrides to use extension points -->
 	<template file="process_css_extend_template.xml"/>
 </plugin>

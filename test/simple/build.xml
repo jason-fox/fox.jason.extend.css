@@ -13,7 +13,10 @@
 					<and>
 						<available file="${basedir}/out/html/common-extended.css"/>
 						<available file="${basedir}/out/html/topic.html"/>
-						<resourcecontains resource="${basedir}/out/html/topic.html" substring="./common-extended.css"/>
+						<resourcecontains
+              resource="${basedir}/out/html/topic.html"
+              substring="./common-extended.css"
+            />
 					</and>
 				</not>
 			</condition>
