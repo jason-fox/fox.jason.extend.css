@@ -39,16 +39,16 @@
     
     <xsl:choose>
       <xsl:when test="$direction = 'rtl' and $urltest ">
-        <link rel="stylesheet" type="text/css" href="{$CSSPATH}{$bidi-dita-css}" />
+        <link rel="stylesheet" type="text/css" href="{$CSSPATH}{$bidi-dita-css}"/>
       </xsl:when>
       <xsl:when test="$direction = 'rtl' and not($urltest)">
-        <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$CSSPATH}{$bidi-dita-css}" />
+        <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$CSSPATH}{$bidi-dita-css}"/>
       </xsl:when>
       <xsl:when test="$urltest">
-        <link rel="stylesheet" type="text/css" href="{$CSSPATH}{$dita-css}" />
+        <link rel="stylesheet" type="text/css" href="{$CSSPATH}{$dita-css}"/>
       </xsl:when>
       <xsl:otherwise>
-        <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$CSSPATH}{$dita-css}" />
+        <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$CSSPATH}{$dita-css}"/>
       </xsl:otherwise>
     </xsl:choose>
     <xsl:value-of select="$newline"/>
@@ -56,10 +56,10 @@
     <xsl:if test="string-length($CSS) > 0">
       <xsl:choose>
         <xsl:when test="$urltest">
-          <link rel="stylesheet" type="text/css" href="{$CSSPATH}{$CSS}" />
+          <link rel="stylesheet" type="text/css" href="{$CSSPATH}{$CSS}"/>
         </xsl:when>
         <xsl:otherwise>
-          <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$CSSPATH}{$CSS}" />
+          <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$CSSPATH}{$CSS}"/>
         </xsl:otherwise>
       </xsl:choose><xsl:value-of select="$newline"/>
     </xsl:if>
