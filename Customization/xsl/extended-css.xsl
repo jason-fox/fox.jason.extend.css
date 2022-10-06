@@ -27,6 +27,9 @@
         <xsl:when test="$FILEDIR='.'">
           <xsl:text>.</xsl:text>
         </xsl:when>
+        <xsl:when test="contains($FILEDIR,'\')" >
+           <xsl:value-of select=" replace($FILEDIR,'[^\\]+','..')"/>
+        </xsl:when>
         <xsl:otherwise>
           <xsl:value-of select=" replace($FILEDIR,'[^/]+','..')"/>
         </xsl:otherwise>
