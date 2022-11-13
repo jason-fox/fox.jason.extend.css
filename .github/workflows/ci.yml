@@ -18,3 +18,8 @@ jobs:
         with:
           dita-ot-version: '4.0'
           plugin: 'fox.jason.extend.css'
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: test-results
+          path: $GITHUB_WORKSPACE/test-results.html
