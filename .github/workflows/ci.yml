@@ -18,6 +18,9 @@ jobs:
         with:
           dita-ot-version: '4.0'
           plugin: 'fox.jason.extend.css'
+      - name: Clone and build GTest
+        run: |
+          ls -lah
       - uses: actions/upload-artifact@v3
         if: always()
         with:
