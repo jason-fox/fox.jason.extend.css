@@ -40,6 +40,7 @@
       if:set="is.html.transform"
       tofile="${output.dir}/${extend.css.path}/common-extended.css"
       file="${extend.css.file}"
+      overwrite="true"
     />
 	</target>
 
