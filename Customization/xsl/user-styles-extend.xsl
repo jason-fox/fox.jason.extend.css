@@ -52,6 +52,11 @@
       </xsl:otherwise>
     </xsl:choose>
     <xsl:value-of select="$newline"/>
+
+    <!-- ↓ Add an additional extended stylesheet ↑ -->
+    <xsl:apply-templates select="." mode="gen-common-extended-style"/>
+    <!-- ↑ End customization · Continue with DITA-OT defaults ↓ -->
+    
     <!-- Add user's style sheet if requested to -->
     <xsl:if test="string-length($CSS) > 0">
       <xsl:choose>
@@ -63,10 +68,6 @@
         </xsl:otherwise>
       </xsl:choose><xsl:value-of select="$newline"/>
     </xsl:if>
-
-    <!-- ↓ Add an additional extended stylesheet ↑ -->
-    <xsl:apply-templates select="." mode="gen-common-extended-style"/>
-    <!-- ↑ End customization · Continue with DITA-OT defaults ↓ -->
 </xsl:template>
   
 </xsl:stylesheet>
