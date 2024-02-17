@@ -48,6 +48,7 @@
     name="extend.css"
     dita:depends="extend.css.init,{extend.css.process.pre},{extend.css.process},{extend.css.process.post},extend.css.copy"
     dita:extension="depends org.dita.dost.platform.InsertDependsAction"
+    description="Generate an extended CSS file"
   />
 
 
